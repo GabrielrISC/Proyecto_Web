@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Datos;
 using System.Data;
+using System.Configuration;
 
 namespace Servicios
 {
     public class DB
     {
-        public SqlConnection conexion= new SqlConnection("Server=A2NWPLSK14SQL-v01.shr.prod.iad2.secureserver.net;Database=db_ProyectoWeb;User Id=sistemas_8vo;Password=3I4r7?mh;");
-        public SqlCommand comando = new SqlCommand();
-        public SqlDataReader lector = null;
-        public SqlDataAdapter adaptador = new SqlDataAdapter();
+        SqlConnection conexion= new SqlConnection(ConfigurationManager.ConnectionStrings["BdCon"].ConnectionString);
+
+         SqlCommand comando = new SqlCommand();
+         SqlDataReader lector = null;
+         SqlDataAdapter adaptador = new SqlDataAdapter();
 
          void AbrirCon()
         {
