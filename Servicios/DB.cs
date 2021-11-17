@@ -65,10 +65,16 @@ namespace Servicios
             }
             catch (Exception e)
             {
+                //-- Tipo de columnas para la tabla si hay un error
+                _resultado.Columns.Add("Mensaje",typeof(string));
+                _resultado.Columns.Add("Codigo_Error", typeof(int));
+                _resultado.Columns.Add("Estatus", typeof(string));
+                //-------
                 verificar_cierre();// verifico si la conexion se quedo abierta si es asi la cierro
-                List<string> errores = new List<string>() {e.Message,"500","Error" };//creo una listita temporal con informacion general del error
+                List<object> errores = new List<object>() {e.Message,500,"Error" };//creo una listita temporal con informacion general del error
                 DataRow row = _resultado.NewRow();// creo una fila para agregarla al datatable
                 row.ItemArray = errores.ToArray();// convierto la lista a arreglo para insertarla en el datatable
+                _resultado.Rows.Add(row);
                 return _resultado;// regreso el datatable
             }
         }
