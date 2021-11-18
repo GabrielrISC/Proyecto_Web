@@ -8,5 +8,6 @@ namespace clsClasesAccesos
 {
     public class Class1
     {
+        //Le falta odio al proyecto
     }
 }
