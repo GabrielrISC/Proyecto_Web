@@ -41,8 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Estatus.cs" />
+    <Compile Include="ObjetosAccesos\clsUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Servicios\Servicios.csproj">
+      <Project>{e2c4f8b8-e2f3-46e8-859d-62c0da204386}</Project>
+      <Name>Servicios</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

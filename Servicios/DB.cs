@@ -9,17 +9,29 @@ namespace Servicios
 {
     public class DB
     {
-        SqlConnection conexion= new SqlConnection(ConfigurationManager.ConnectionStrings["BdCon"].ConnectionString);
+        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BdCon"].ConnectionString);
 
-         SqlCommand comando = new SqlCommand();
-         SqlDataReader lector = null;
-         SqlDataAdapter adaptador = new SqlDataAdapter();
+        public DB()
+        {
 
-         void AbrirCon()
+
+        }
+
+        public DB(string strCon)
+        {
+            conexion = new SqlConnection(ConfigurationManager.ConnectionStrings[strCon].ConnectionString);
+
+        }
+
+        SqlCommand comando = new SqlCommand();
+        SqlDataReader lector = null;
+        SqlDataAdapter adaptador = new SqlDataAdapter();
+
+        void AbrirCon()
         {
             this.conexion.Open();
         }
-         void CerrarCon()
+        void CerrarCon()
         {
             this.conexion.Close();
         }
@@ -32,7 +44,7 @@ namespace Servicios
         }
 
         public Estatus ExecutarQuery(string query)
-        {           
+        {
             try
             {
                 AbrirCon();// Abro la conexion
@@ -40,13 +52,13 @@ namespace Servicios
                 comando.ExecuteNonQuery();// executo el query
                 comando.Dispose();// libero el objeto
                 CerrarCon();// cierro la conexion
-                return new Estatus {Mensaje="Query ejecutado",Codigo=100,Estado="Exito"};// regreso un estatus de la ejecucion
+                return new Estatus { Mensaje = "Query ejecutado", Codigo = 100, Estado = "Exito" };// regreso un estatus de la ejecucion
             }
             catch (Exception e)
             {
                 verificar_cierre();// verifico si la conexion se quedo abierta si es asi la cierro
                 string _mensaje = e.Message;
-                return new Estatus { Mensaje = _mensaje, Codigo = 500, Estado="Error" };// regreso un estatus de la ejecucion
+                return new Estatus { Mensaje = _mensaje, Codigo = 500, Estado = "Error" };// regreso un estatus de la ejecucion
             }
         }
         public DataTable QuerySelect(string query)
@@ -65,12 +77,12 @@ namespace Servicios
             catch (Exception e)
             {
                 //-- Tipo de columnas para la tabla si hay un error
-                _resultado.Columns.Add("Mensaje",typeof(string));
+                _resultado.Columns.Add("Mensaje", typeof(string));
                 _resultado.Columns.Add("Codigo_Error", typeof(int));
                 _resultado.Columns.Add("Estatus", typeof(string));
                 //-------
                 verificar_cierre();// verifico si la conexion se quedo abierta si es asi la cierro
-                List<object> errores = new List<object>() {e.Message,500,"Error" };//creo una listita temporal con informacion general del error
+                List<object> errores = new List<object>() { e.Message, 500, "Error" };//creo una listita temporal con informacion general del error
                 DataRow row = _resultado.NewRow();// creo una fila para agregarla al datatable
                 row.ItemArray = errores.ToArray();// convierto la lista a arreglo para insertarla en el datatable
                 _resultado.Rows.Add(row);

@@ -43,13 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB.cs" />
+    <Compile Include="Estatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Datos\Datos.csproj">
-      <Project>{AA425E03-5E7B-4353-8589-769EE3634A93}</Project>
-      <Name>Datos</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
