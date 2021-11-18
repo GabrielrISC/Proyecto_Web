@@ -8,10 +8,6 @@ namespace clsClasesAccesos
 {
     public class Class1
     {
-        //Este es mi codigo liz
-       public void metodoLiz()
-        {
-            // balblablalbab
-        }
+
     }
 }
