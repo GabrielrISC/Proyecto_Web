@@ -11,7 +11,7 @@ namespace clsClasesAccesos
         //Este es mi codigo liz
        public void metodoLiz()
         {
-
+            // balblablalbab
         }
     }
 }
