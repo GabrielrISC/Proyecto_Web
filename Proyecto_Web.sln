@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clsClasesAccesos", "clsClasesAccesos\clsClasesAccesos.csproj", "{84C0004C-A418-4BB1-B155-7773948ADBBE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicios", "Servicios\Servicios.csproj", "{E2C4F8B8-E2F3-46E8-859D-62C0DA204386}"
@@ -10,7 +12,8 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ProyectoWeb", "http://localhost:9329", "{B97583A9-4766-4B3F-A8B5-0C66FE259A7D}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.2"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{aa425e03-5e7b-4353-8589-769ee3634a93}|Datos.dll;{E2C4F8B8-E2F3-46E8-859D-62C0DA204386}|Servicios.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_9329"
 		Debug.AspNetCompiler.PhysicalPath = "ProyectoWeb\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9329\"
