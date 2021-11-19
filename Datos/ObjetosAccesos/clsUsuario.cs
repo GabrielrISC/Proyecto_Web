@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Servicios;
+using Newtonsoft.Json;
 namespace Datos.ObjetosAccesos
 {
     public class clsUsuario
