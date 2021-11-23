@@ -15,7 +15,8 @@ namespace Datos.ObjetosAccesos
         public int intRolId;
         public bool bolEsAdministrador;
 
-        public class Usuario {
+        public class Usuario
+        {
             public string strNombre;
             public string strUsuarioId;
             public string strPassword;
@@ -23,20 +24,27 @@ namespace Datos.ObjetosAccesos
             public bool bolEsAdministrador;
         }
 
-        public static string Insertar(Usuario objUsuario, string strCon) {
-
+        public static string Insertar(Usuario objUsuario, string strCon)
+        {
             DB objDb = new DB();
-
-
-            string strSql = "INSERT INTO tUsuarios (UsuarioId, Nombre, Password, RolId, EsAdministrador)" + 
-                            " VALUES('"+ objUsuario.strNombre +"', '"+ objUsuario.strPassword +"', "+ objUsuario.intRolId +", '"+ objUsuario.bolEsAdministrador.ToString() +"')";
-            objDb.ExecutarQuery(strSql);
-
-
-
+            string strSql = $"INSERT INTO tUsuarios (UsuarioId, Nombre, Password, RolId, EsAdministrador)" +
+                            $" VALUES('{objUsuario.strNombre}', '{objUsuario.strPassword}', {objUsuario.intRolId}, '{objUsuario.bolEsAdministrador.ToString()}')";
+            Estatus objResultado = objDb.ExecutarQuery(strSql);
+            return JsonConvert.SerializeObject(objResultado);
+        }
+        public static string Actualizar(Usuario objUsuario, string strCon)
+        {
             return "";
         }
 
+        public static string Eliminar(string strUsuarioId, string strCon)
+        {
+            return "";
+        }
 
+        public static string Get(string strUsuarioId, string strCon)
+        {
+            return "";
+        }
     }
 }
